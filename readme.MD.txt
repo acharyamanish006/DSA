@@ -1,2 +1,2 @@
-#
+#some simple algorithm
 #
