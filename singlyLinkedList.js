@@ -48,6 +48,22 @@ class SinglyLinkedList {
     if (!this.head) return console.log("no node to shift");
     const firstNode = this.head;
     this.head = firstNode.next;
+    this.length--;
+    if (this.length === 0) {
+      this.tail = null;
+    }
+  }
+  unShift(val) {
+    // add a new head and point the old one at it's next value, then set that as our new head!
+    let newNode = new Node(val);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = this.head;
+    } else {
+      newNode.next = this.head;
+      this.head = newNode;
+    }
+    this.length++;
   }
   traverse() {
     if (!this.head) return console.log("No Node to Traverse");
@@ -62,9 +78,6 @@ class SinglyLinkedList {
 let newList = new SinglyLinkedList();
 newList.push("hey");
 newList.push("hi");
-newList.push("how");
-newList.push("are");
-newList.push("you");
 // newList.pop();
 // newList.pop();
 // newList.pop();
@@ -78,5 +91,8 @@ newList.push("you");
 // newList.shift();
 // newList.shift();
 // newList.shift();
+newList.unShift("you");
+newList.unShift("are");
+newList.unShift("how");
 newList.traverse();
 // console.log(newList);
