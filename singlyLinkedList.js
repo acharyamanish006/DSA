@@ -72,14 +72,38 @@ class SinglyLinkedList {
       return;
     }
     let indexVal;
-    for (let i = 0; i <= index; i++) {
+    for (let i = 0; i < index; i++) {
       if (!this.head) {
         console.log("index is greater then len of linkList");
+        return;
       }
       indexVal = this.head;
       this.head = indexVal.next;
     }
     console.log(indexVal);
+  }
+  set(index, val) {
+    if (!Number.isInteger(index)) throw Error("Index must be an integer");
+    if (index < 0) {
+      console.error("Negative Index Not Allowed");
+      return;
+    }
+    let newNode = new Node(val);
+    let tempNode;
+    let currentNode;
+    for (let i = 0; i <= index; i++) {
+      if (!this.head) {
+        console.log("index is greater then len of linkList");
+        return;
+      }
+      currentNode = this.head;
+      this.head = currentNode.next;
+    }
+    tempNode = currentNode;
+    currentNode = newNode;
+    currentNode.next = tempNode.next;
+    tempNode.next = currentNode;
+    // console.log(currentNode);
   }
   traverse() {
     if (!this.head) return console.log("No Node to Traverse");
@@ -94,6 +118,9 @@ class SinglyLinkedList {
 let newList = new SinglyLinkedList();
 newList.push("hey");
 newList.push("hi");
+newList.push("how");
+newList.push("are");
+newList.push("you");
 // newList.pop();
 // newList.pop();
 // newList.pop();
@@ -107,12 +134,14 @@ newList.push("hi");
 // newList.shift();
 // newList.shift();
 // newList.shift();
-newList.unShift("you");
-newList.unShift("are");
-newList.unShift("how");
+// newList.unShift("you");
+// newList.unShift("are");
+// newList.unShift("how");
 // newList.get(-1);
 // newList.get(0);
 // newList.get(1);
 // newList.get(2);
-// newList.traverse();
+// newList.get(10);
+// newList.set(2, "tex");
+newList.traverse();
 // console.log(newList);
