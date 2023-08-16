@@ -23,6 +23,27 @@ class SinglyLinkedList {
     this.length += 1;
     return this;
   }
+  pop() {
+    // remove the last element from a list
+    let popVal = this.tail;
+    let current = this.head;
+
+    while (current) {
+      if (current.next == popVal) {
+        this.tail = current;
+        current.next = null;
+        return;
+      }
+      current = current.next;
+    }
+  }
+  traverse() {
+    let current = this.head;
+    while (current) {
+      console.log(current);
+      current = current.next;
+    }
+  }
 }
 
 let newList = new SinglyLinkedList();
@@ -31,5 +52,11 @@ newList.push("hi");
 newList.push("how");
 newList.push("are");
 newList.push("you");
-
-console.log(newList);
+newList.pop();
+newList.pop();
+newList.pop();
+newList.pop();
+newList.pop();
+newList.pop();
+newList.traverse();
+// console.log(newList);
