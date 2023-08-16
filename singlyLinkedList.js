@@ -65,6 +65,22 @@ class SinglyLinkedList {
     }
     this.length++;
   }
+  get(index) {
+    if (!Number.isInteger(index)) throw Error("Index must be an integer");
+    if (index < 0) {
+      console.error("Negative Index Not Allowed");
+      return;
+    }
+    let indexVal;
+    for (let i = 0; i <= index; i++) {
+      if (!this.head) {
+        console.log("index is greater then len of linkList");
+      }
+      indexVal = this.head;
+      this.head = indexVal.next;
+    }
+    console.log(indexVal);
+  }
   traverse() {
     if (!this.head) return console.log("No Node to Traverse");
     let current = this.head;
@@ -94,5 +110,9 @@ newList.push("hi");
 newList.unShift("you");
 newList.unShift("are");
 newList.unShift("how");
-newList.traverse();
+// newList.get(-1);
+// newList.get(0);
+// newList.get(1);
+// newList.get(2);
+// newList.traverse();
 // console.log(newList);
