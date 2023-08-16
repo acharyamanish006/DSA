@@ -44,6 +44,11 @@ class SinglyLinkedList {
       this.tail = null;
     }
   }
+  shift() {
+    if (!this.head) return console.log("no node to shift");
+    const firstNode = this.head;
+    this.head = firstNode.next;
+  }
   traverse() {
     if (!this.head) return console.log("No Node to Traverse");
     let current = this.head;
@@ -60,11 +65,18 @@ newList.push("hi");
 newList.push("how");
 newList.push("are");
 newList.push("you");
-newList.pop();
-newList.pop();
-newList.pop();
-newList.pop();
-newList.pop();
-newList.pop();
+// newList.pop();
+// newList.pop();
+// newList.pop();
+// newList.pop();
+// newList.pop();
+// newList.pop();
+// newList.pop();
+// newList.shift();
+// newList.shift();
+// newList.shift();
+// newList.shift();
+// newList.shift();
+// newList.shift();
 newList.traverse();
 // console.log(newList);
