@@ -20,24 +20,32 @@ class SinglyLinkedList {
       this.tail.next = node;
       this.tail = node;
     }
-    this.length += 1;
+    this.length++;
     return this;
   }
   pop() {
     // remove the last element from a list
-    let popVal = this.tail;
+    if (!this.head) return console.log("no node to pop");
     let current = this.head;
+    let nextTail = current;
 
-    while (current) {
-      if (current.next == popVal) {
-        this.tail = current;
-        current.next = null;
-        return;
-      }
+    while (current.next) {
+      nextTail = current;
       current = current.next;
+    }
+    console.log(nextTail);
+    console.log(current);
+    this.tail = nextTail;
+    this.tail.next = null;
+    this.length--;
+    console.log(this.length);
+    if (this.length === 0) {
+      this.head = null;
+      this.tail = null;
     }
   }
   traverse() {
+    if (!this.head) return console.log("No Node to Traverse");
     let current = this.head;
     while (current) {
       console.log(current);
