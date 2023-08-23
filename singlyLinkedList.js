@@ -143,5 +143,19 @@ newList.push("you");
 // newList.get(2);
 // newList.get(10);
 // newList.set(2, "tex");
-newList.traverse();
+// newList.traverse();
 // console.log(newList);
+let l1 = new SinglyLinkedList();
+l1.push(2);
+l1.push(4);
+l1.push(3);
+let l2 = new SinglyLinkedList();
+l2.push(5);
+l2.push(6);
+l2.push(4);
+
+var addTwoNumbers = function (l1, l2) {
+  console.log(l1.head.next);
+};
+
+addTwoNumbers(l1, l2);
